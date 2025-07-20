@@ -18,13 +18,29 @@ namespace ADSPortEx3
         // an array as you work your way towards a viable solution.
 
         //The delivered solution cannot exceed a weight limit of 100KG, make sure you are keeping track of this
-               
+
 
         // - Adam.M 
 
         public static List<Item> GetGreedyManifesto(List<Item> items, double limit)
         {
-            throw new NotImplementedException();
+            List<Item> selected = new List<Item>();
+
+            items.Sort();
+            items.Reverse();
+
+            double currentWeight = 0;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (currentWeight + items[i].Weight <= limit)
+                {
+                    selected.Add(items[i]);
+                    currentWeight += items[i].Weight;
+                }
+            }
+
+            return selected;
         }
 
     }

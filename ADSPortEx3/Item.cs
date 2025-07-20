@@ -14,37 +14,43 @@ namespace ADSPortEx3
 
     class Item : IComparable
     {
-        public Item(string name, int value, int weight)
+        private string thename;
+        private int thevalue;
+        private double theweight;
+        public Item(string name, int value, double weight)
         {
-            throw new NotImplementedException();
+            this.thename = name;
+            this.thevalue = value;
+            this.theweight = weight;
         }
 
         public string Name
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return thename; }
+            set { thename = value; }
         }
-
+        
         public int Value
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return thevalue; }
+            set { thevalue = value; }
         }
 
         public double Weight
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return theweight; }
+            set { theweight = value; }
         }
 
         public double ValRatio
         {
-            get { throw new NotImplementedException(); }
+            get { return Value / Weight; }
         }
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            Item other = obj as Item;
+            return this.ValRatio.CompareTo(other.ValRatio);
         }
     }
 }

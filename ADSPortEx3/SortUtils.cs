@@ -43,9 +43,21 @@ namespace ADSPortEx3
 
         static public void InsertSortGen<T>(T[] a) where T : IComparable
         {
-            throw new NotImplementedException();
-        }
 
+            for (int i = 1; i < a.Length; i++)
+            {
+                T value = a[i];
+                int j = i;
+
+                for (; j > 0 && a[j - 1].CompareTo(value) > 0; j--)
+                {
+                    a[j] = a[j - 1];
+                }
+
+                a[j] = value;
+            }
+
+        }
 
     }
 }
